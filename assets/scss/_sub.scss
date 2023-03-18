@@ -1,0 +1,79 @@
+
+
+
+/*===========================
+    4.SUB css 
+===========================*/
+
+
+.sub-area{
+	position: relative;
+	padding-top: 90px;
+	padding-bottom: 120px;
+	background: #f2f5f8;
+	& .sub-thumb{
+		background: $white;
+		
+		& img{
+			width: 100%;
+			 box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+		}
+	}
+	& .sub-item{
+		padding: 28px 38px 38px;
+		box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+		border-radius: 5px;
+		position: relative;
+		z-index: 10;
+		@media #{$md} {
+			min-height: 330px;
+		}
+		&::before{
+			position: absolute;
+			content: "\f101";
+			font-family: Flaticon;
+			right: 0;
+			top: 0;
+			font-size: 120px;
+			color: #f7f6fe;
+			line-height: 120px;
+			z-index: -1;
+		}
+		& a{
+			position: absolute;
+			right: 30px;
+			bottom: 38px;
+			& i{
+				color: #c9c9c9;
+				font-size: 20px;
+			}
+		}
+		& .title{
+			font-size: 22px;
+			line-height: 30px;
+			font-weight: 500;
+			font-family: $rub;
+			@media #{$lg} {
+				font-size: 19px;
+				line-height: 26px;
+			}
+		}
+		& > i{
+			font-size: 80px;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-image: linear-gradient(90deg, rgba(209,101,26,1) 0%, rgba(193,40,42,1) 100%);
+			padding-top: 20px;
+		}
+		&.item-3{
+			&::before{
+				content: "\f105";
+			}
+		}
+		&.item-4{
+			&::before{
+				content: "\f104";
+			}
+		}
+	}
+}

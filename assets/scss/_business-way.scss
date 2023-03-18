@@ -1,0 +1,119 @@
+
+
+
+/*===========================
+    14.BUSINESS WAY css 
+===========================*/
+
+
+
+
+
+.business-way-area{
+	position: relative;
+	margin-top: -110px;
+	& .business-way-box{
+		padding: 30px;
+		background: $theme-color-3;
+		border-radius: 5px;
+		& .business-way-content{
+			padding-left: 20px;
+			@media #{$lg} {
+				padding-left: 0;
+				margin-right: -30px;
+			}
+			@media #{$md} {
+				padding-bottom: 30px;
+			}
+			@media #{$xs} {
+				padding-bottom: 30px;
+				padding-left: 0;
+			}
+			@media #{$sm} {
+				padding-bottom: 30px;
+				padding-left: 20px;
+			}
+			& .title{
+				font-weight: 600;
+				font-size: 28px;
+				line-height: 40px;
+				color: $white;
+				@media #{$xs} {
+					font-size: 27px;
+				}
+			}
+			& a{
+				border: 2px solid $white;
+				background: transparent;
+				color: $white;
+				line-height: 50px;
+				padding: 0 25px;
+				margin-top: 28px;
+			}
+		}
+		& .business-way-slide{
+			margin-right: 65px;
+			margin-left: 65px;
+			@media #{$xs} {
+				margin-right: 0;
+				margin-left: 0;
+			}
+			& .slick-arrow{
+				position: absolute;
+				top: 50%;
+				cursor: pointer;
+				z-index: 99;
+				height: 34px;
+				width: 34px;
+				text-align: center;
+				line-height: 34px;
+				background-color: rgba(255, 255, 255,.3);
+				border-radius: 50%;
+				color: $white;				
+				transform: translateY(-50%);
+				@include transition(0.3s);
+				&:hover{
+					background: $white;
+					color: $black;
+				}
+				&.prev{
+					left: -45px;
+				}
+				&.next{
+					right: -45px;
+				}
+			}
+			& .business-way-item{
+				padding: 13px 0px 32px;
+				border-radius: 10px;
+				& i{
+					font-size: 60px;
+					color: #222f5a;
+					position: relative;
+					z-index: 10;
+					&::after{
+						position: absolute;
+						content: '';
+						right: 3px;
+						bottom: 18px;
+						height: 18px;
+						width: 18px;
+						border-radius: 50%;
+						background: $theme-color-3;
+						z-index: -1;
+					}
+				}
+				& .title{
+					font-size: 18px;
+					line-height: 26px;
+					color: $black;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+

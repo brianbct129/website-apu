@@ -1,0 +1,169 @@
+
+
+
+/*===========================
+    12.FUN FACTS css 
+===========================*/
+
+
+
+.fun-facts-area{
+	background: $grey;
+	padding-top: 115px;
+	padding-bottom: 120px;
+	& .fun-facts-content{
+		overflow: hidden;
+		@media #{$md} {
+			padding-bottom: 50px;
+		}
+		@media #{$xs} {
+			padding-bottom: 50px;
+		}
+		& span{
+			font-weight: 700;
+			font-family: $pop;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-image: linear-gradient(90deg, #2b77eb 0%, #164a99 100%);
+			position: relative;
+			&::before{
+				position: absolute;
+				content: '';
+				right: -85px;
+				top: 50%;
+				transform: translateY(-50%);
+				height: 2px;
+				width: 60px;
+				background-image: linear-gradient(90deg, #2b77eb 0%, #164a99 100%);
+			}
+
+		}
+		& .title{
+			font-size: 56px;
+			line-height: 66px;
+			color: #4b5d73;
+			padding-right: 40px;
+			padding-top: 13px;
+			@media #{$lg} {
+				font-size: 48px;
+				line-height: 58px;
+
+			}
+			@media #{$xs} {
+				font-size: 29px;
+				line-height: 40px;
+			}
+			@media #{$sm} {
+				font-size: 56px;
+				line-height: 66px;
+			}
+		}
+		& p{
+			line-height: 30px;
+			padding-right: 100px;
+			padding-top: 30px;
+			padding-bottom: 40px;
+			@media #{$lg} {
+				padding-right: 25px;
+			}
+			@media #{$md} {
+				padding-right: 50px;
+			}
+			@media #{$xs} {
+				padding-right: 0px;
+			}
+			@media #{$sm} {
+				padding-right: 100px;
+			}
+		}
+		& a{
+			background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);	
+			overflow: hidden;
+			background-position: center;
+			background-position-x: 0%;
+			background-position-y: 0%;
+			background-size: auto;
+			background-size: 200% auto;
+			&:hover{
+				background-position: right center;
+			}
+		}
+	}
+	& .fun-facts-progress{
+		& .progress-item{
+			position: relative;
+			&::before{
+				position: absolute;
+				content: '';
+				left: 61%;
+				top: 50%;
+				height: 170px;
+				width: 1px;
+				background: #d1d7dd;
+				transform: translate(-50%, -50%);
+				@media #{$md} {
+					display: none;
+				}
+				@media #{$xs} {
+					display: none;
+				}
+			}
+			& .item{
+				@media #{$xs} {
+					margin-left: 0;
+					margin-top: 50px;
+				}
+				@media #{$sm} {
+					margin-left: 60px;
+					margin-top: 0px;
+				}
+				& .box{
+					position: relative;
+					text-align: center;
+					& .title{
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						transform: translate(-50%, -50%);
+						font-size: 18px;
+						color: $black;
+						& span{
+							font-size: 50px;
+						}
+					}
+				}
+				& .content{
+					& span{
+						font-size: 18px;
+						padding-top: 9px;
+					}
+				}
+			}
+		}
+	}
+	&.fun-facts-about{
+		& .fun-facts-content {
+			& span{
+				background-image: linear-gradient(90deg, #d1651a 0%, #c1282a 100%);
+				&::before{
+					background-image: linear-gradient(90deg, #d1651a 0%, #c1282a 100%);
+				}
+			}
+			& .title{
+				color: $heading-color;
+			}
+			& a{
+				background: -webkit-linear-gradient(left, #d1651a 0%, #c1282a 50%, #d1651a 100%);	
+				overflow: hidden;
+				background-position: center;
+				background-position-x: 0%;
+				background-position-y: 0%;
+				background-size: auto;
+				background-size: 200% auto;
+				&:hover{
+					background-position: right center;
+				}
+			}
+		}
+	}
+}

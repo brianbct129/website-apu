@@ -1,0 +1,358 @@
+
+
+
+/*===========================
+    13.FAQ css 
+===========================*/
+
+
+
+.faq-area{
+	position: relative;
+	padding-bottom: 455px;
+	&::before{
+		position: absolute;
+		content: '';
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: linear-gradient(90deg, rgba(66,140,212,.9) 0%, rgba(0,78,154,.9) 100%);
+	}
+    &.faq-about{
+        &::before{
+            background: linear-gradient(90deg, rgba(209,101,26,.9) 0%, rgba(193,40,42,.9) 100%);
+        }
+    }
+}
+
+.faq-box-area{
+	position: relative;
+	margin-top: -410px;
+	& .faq-box{
+		padding: 45px;
+		box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+        @media #{$xs} {
+            padding: 15px;
+        }
+        @media #{$sm} {
+            padding: 45px;
+        }
+		& .faq-accordion{
+			& .faq-accordion-content{
+				padding-top: 13px;
+				padding-bottom: 55px;
+				& .title{
+					font-size: 24px;
+					color: $black;
+				}
+				& p{
+					line-height: 27px;
+					padding-top: 13px;
+				}
+			}
+		}
+	}
+	& .faq-form{
+		background: #fafbff;
+		padding: 50px;
+        @media #{$md} {
+            margin-top: 50px;
+        }
+        @media #{$xs} {
+            margin-top: 50px;
+            padding: 15px;
+        }
+        @media #{$sm} {
+            padding: 50px;
+        }
+		& .faq-title{
+			padding-bottom: 27px;
+			& .title{
+				font-size: 24px;
+				color: $black;
+			}
+		}
+		& .input-box{
+			& input{
+				width: 100%;
+				border: 1px solid #d7d7d7;
+				background-color: transparent;
+				padding-left: 20px;
+				height: 50px;
+				color: #565872;
+				&::placeholder{
+					opacity: 1;
+                    color: #565872;
+				}
+			}
+			& textarea{
+				width: 100%;
+				height: 260px;
+				background-color: transparent;
+				border: 1px solid #d7d7d7;
+				resize: none;
+				padding-left: 20px;
+				padding-top: 15px;
+				color: #565872;
+				&::placeholder{
+                    opacity: 1;
+                    color: #565872;
+                }
+			}
+			& button{
+				background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);	
+				overflow: hidden;
+				background-position: center;
+				background-position-x: 0%;
+				background-position-y: 0%;
+				background-size: auto;
+				background-size: 200% auto;
+				padding: 0 40px;
+				&:hover{
+					background-position: right center;
+				}
+			}
+		}
+	}
+    &.faq-box-about{
+        & .faq-form{
+            & .input-box{
+                & button{
+                    background: -webkit-linear-gradient(left, #d1651a 0%, #c1282a 50%, #d1651a 100%);
+                    background: -o-linear-gradient(left, #d1651a 0%, #c1282a 50%, #d1651a 100%);
+                    background: linear-gradient(to right, #d1651a 0%, #c1282a 50%, #d1651a 100%);   
+                    overflow: hidden;
+                    background-position: center;
+                    background-position-x: 0%;
+                    background-position-y: 0%;
+                    background-size: auto;
+                    background-size: 200% auto;
+                    &:hover{
+                        background-position: right center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.faq-accordion {
+    padding-top: 35px;
+    @media #{$lg} {
+        padding-top: 30px;
+    }
+    @media #{$md} {
+        padding-top: 30px;
+    }
+    @media #{$xs} {
+        padding-top: 30px;
+    }
+
+    & .accordion {
+        border: 0px;
+
+        & .card {
+            border-radius: 0px !important;
+            border: 0;
+            margin-top: 20px;
+            background-color: transparent;
+            box-shadow: 0px 6px 47px 3px rgba(37, 37, 37, 0.05);
+            border: 0;
+
+            &:first-child {
+                border-top: 0;
+            }
+
+            & .card-header {
+                border-bottom: 0;
+                padding: 0;
+                margin: 0;
+                background-color: transparent;
+
+                & a {
+                    line-height: 70px;
+                    padding: 0 0 0 30px;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 16px;
+                    width: 100%;
+                    color: $heading-color;
+                    position: relative;
+                    & span{
+                        color: $theme-color;
+                        padding-right: 12px;
+                        @media #{$lg} {
+                            padding-right: 0;
+                        }
+                    }
+
+
+                    @media #{$lg} {
+                        padding: 0 0 0 20px;
+                        font-size: 13px;
+                    }
+
+                    @media #{$md} {
+                        padding: 15px 0 15px 20px;
+                        line-height: 26px;
+                        font-size: 13px;
+                    }
+
+                    @media #{$xs} {
+                        padding: 15px 30px 15px 20px;
+                        line-height: 26px;
+                        font-size: 14px;
+                    }
+
+                    & i {
+                        color: $white;
+                        padding-right: 20px;
+
+                        @media #{$lg} {
+                            padding-right: 10px;
+                        }
+                    }
+
+                    &.collapsed {
+                        font-size: 16px;
+                        color: $heading-color;
+
+                        @media #{$lg} {
+                            padding: 0 0 0 20px;
+                            font-size: 14px;
+                        }
+
+                        @media #{$md} {
+                            padding: 15px 0 15px 20px;
+                            line-height: 26px;
+                            font-size: 13px;
+                        }
+
+                        @media #{$xs} {
+                            padding: 15px 30px 15px 20px;
+                            line-height: 26px;
+                            font-size: 14px;
+                        }
+
+                        &::before {
+                            content: '\f111';
+                            color: #99b1c8;
+                        }
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "\f112";
+                        right: 36px;
+                        font-size: 16px;
+                        font-family: Flaticon;
+                        color: #99b1c8;
+                        @media #{$lg} {
+                            right: 10px;
+                        }
+
+                        @media #{$xs} {
+                            right: 10px;
+                        }
+
+                    }
+                }
+            }
+
+            & .card-body {
+                padding: 0 20px 25px 30px !important;
+
+                @media #{$lg} {
+                    padding: 0 20px 25px 30px !important;
+                }
+
+
+
+                & p {
+                    font-size: 16px;
+                    color: $body-color;
+                    line-height: 30px;
+                }
+            }
+
+            &.show {
+                .card-body {
+                    padding: 0 40px 14px 40px !important;
+
+                    & p {
+                        margin-top: -10px;
+                        font-size: 14px;
+                        color: $body-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.brand-area{
+	padding-bottom: 120px;
+
+	& .brand-item{
+		& img{
+			display: inline-block;
+			opacity: .4;
+			@include transition(0.3s);
+			&:hover{
+				opacity: 1;
+			}
+		}
+	}
+    &.brand-2-area{
+        background: $theme-color-3;
+        padding-top: 80px;
+        padding-bottom: 80px;
+        & .brand-item{
+            & img{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+
+
+
+
+.faq-page-area{
+    & .faq-accordion{
+        & .accordion{
+            & .card{
+                & .card-header{
+                    & a{
+                        color: $black;
+                        font-size: 18px;
+                    }
+                }
+                & .card-body{
+                    padding: 0 50px 25px 30px !important;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
