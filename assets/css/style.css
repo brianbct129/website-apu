@@ -402,11 +402,11 @@ p {
       .header-area.header-2-area .header-top .header-top-info a {
         padding: 0 10px;
         margin-left: 0; } }
-.header-area.header-2-area .navigation {
+.header-area.header-2-area .navigation { 
   top: 130px;
-  background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-  background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-  background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
+  background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+  background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+  background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
   padding: 0 40px; }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .header-area.header-2-area .navigation {
@@ -469,9 +469,9 @@ p {
     padding-top: 4px; }
   .header-area.header-2-area .navigation.sticky {
     top: 0;
-    background-image: -moz-linear-gradient(80deg, #428cd4 0%, #004e9a 100%);
-    background-image: -webkit-linear-gradient(80deg, #428cd4 0%, #004e9a 100%);
-    background-image: -ms-linear-gradient(80deg, #428cd4 0%, #004e9a 100%); }
+    background-image: -moz-linear-gradient(80deg, #9c2732 0%, #DC3545 100%);
+    background-image: -webkit-linear-gradient(80deg, #9c2732 0%, #DC3545 100%);
+    background-image: -ms-linear-gradient(80deg, #9c2732 0%, #DC3545 100%); }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .header-area.header-2-area .navigation.sticky {
         padding: 5px 15px; } }
@@ -1006,7 +1006,7 @@ p {
         .banner-area.banner-2-area .banner-content p {
           font-size: 14px; } }
     .banner-area.banner-2-area .banner-content a.main-btn {
-      background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);
+      background: -webkit-linear-gradient(left, #9c2732 0%, #DC3545 100%);
       overflow: hidden;
       background-position: center;
       background-position-x: 0%;
@@ -1406,9 +1406,9 @@ p {
           padding-left: 0;
           margin-top: 70px; } }
       .why-choose-area.why-choose-2-area .why-choose-content .content span {
-        background-image: linear-gradient(90deg, #428cd4 0%, #004e9a 100%); }
+        background-image: linear-gradient(90deg, #9c2732 0%, #DC3545 100%); }
         .why-choose-area.why-choose-2-area .why-choose-content .content span::before {
-          background-image: linear-gradient(90deg, #428cd4 0%, #004e9a 100%); }
+          background-image: linear-gradient(90deg, #9c2732 0%, #DC3545 100%); }
       .why-choose-area.why-choose-2-area .why-choose-content .content .title {
         color: #4b5d73; }
         @media (max-width: 767px) {
@@ -1424,7 +1424,7 @@ p {
       .why-choose-area.why-choose-2-area .why-choose-content .choose-list .item i {
         color: #216db2; }
       .why-choose-area.why-choose-2-area .why-choose-content ul li a.main-btn {
-        background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);
+        background: -webkit-linear-gradient(left, #9c2732 0%, #DC3545 100%);
         overflow: hidden;
         background-position: center;
         background-position-x: 0%;
@@ -1442,9 +1442,9 @@ p {
         top: -20px;
         height: 50px;
         width: 90px;
-        background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-        background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-        background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
+        background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+        background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+        background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
         border-radius: 5px;
         transform: skewX(-28deg); }
       .why-choose-area.why-choose-2-area .why-choose-thumb .why-choose-thumb-item {
@@ -1467,9 +1467,9 @@ p {
           top: 0;
           height: 100%;
           width: 100%;
-          background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-          background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-          background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
+          background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+          background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+          background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
           border-radius: 5px;
           z-index: -1;
           transform: skewX(-25deg); }
@@ -1801,9 +1801,9 @@ p {
   padding-top: 115px;
   padding-bottom: 120px; }
   .services-2-area .services-item {
-    background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-    background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-    background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
+    background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+    background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+    background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
     padding: 40px;
     position: relative;
     z-index: 10; }
@@ -2736,9 +2736,9 @@ p {
           height: 12px;
           width: 12px;
           border-radius: 50%;
-          background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-          background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-          background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%); }
+          background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+          background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+          background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%); }
     .team-2-area .team-item:hover .team-thumb img {
       transform: scale(1.1); }
   .team-2-area .team-active .slick-arrow {
@@ -2751,9 +2751,9 @@ p {
     width: 50px;
     text-align: center;
     line-height: 50px;
-    background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-    background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-    background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
+    background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+    background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+    background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
     -ms-transition: all 0.3s ease-out 0s;
@@ -3052,9 +3052,9 @@ p {
           margin-top: 40px; } }
 
 .newsletter-area {
-  background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-  background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-  background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%); }
+  background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+  background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+  background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%); }
   @media only screen and (min-width: 768px) and (max-width: 991px) {
     .newsletter-area .newsletter-item .newsletter-content {
       padding-bottom: 30px; } }
@@ -3912,9 +3912,9 @@ p {
       .footer-area.footer-2-area .footer-content ul li a:hover {
         color: #fff; }
       .footer-area.footer-2-area .footer-content ul li a::before {
-        background-image: -moz-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-        background-image: -webkit-linear-gradient(0deg, #428cd4 0%, #004e9a 100%);
-        background-image: -ms-linear-gradient(0deg, #428cd4 0%, #004e9a 100%); }
+        background-image: -moz-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+        background-image: -webkit-linear-gradient(0deg, #9c2732 0%, #DC3545 100%);
+        background-image: -ms-linear-gradient(0deg, #9c2732 0%, #DC3545 100%); }
     .footer-area.footer-2-area .footer-list .title {
       color: #4b5d73; }
     .footer-area.footer-2-area .footer-list ul li a {
@@ -4214,7 +4214,7 @@ p {
         .fun-facts-area .fun-facts-content p {
           padding-right: 100px; } }
     .fun-facts-area .fun-facts-content a {
-      background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);
+      background: -webkit-linear-gradient(left, #9c2732 0%, #DC3545 100%);
       overflow: hidden;
       background-position: center;
       background-position-x: 0%;
@@ -4359,7 +4359,7 @@ p {
         opacity: 1;
         color: #565872; }
     .faq-box-area .faq-form .input-box button {
-      background: -webkit-linear-gradient(left, #2b77eb 0%, #164a99 50%, #2b77eb 100%);
+      background: -webkit-linear-gradient(left, #9c2732 0%, #DC3545 100%);
       overflow: hidden;
       background-position: center;
       background-position-x: 0%;
