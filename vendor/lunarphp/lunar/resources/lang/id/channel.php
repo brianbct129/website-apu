@@ -2,16 +2,19 @@
 
 return [
 
-    'label' => 'Bahasa',
+    'label' => 'Saluran',
 
-    'plural_label' => 'Bahasa',
+    'plural_label' => 'Saluran',
 
     'table' => [
         'name' => [
             'label' => 'Nama',
         ],
-        'code' => [
-            'label' => 'Kode',
+        'handle' => [
+            'label' => 'Handle',
+        ],
+        'url' => [
+            'label' => 'URL',
         ],
         'default' => [
             'label' => 'Default',
@@ -22,8 +25,11 @@ return [
         'name' => [
             'label' => 'Nama',
         ],
-        'code' => [
-            'label' => 'Kode',
+        'handle' => [
+            'label' => 'Handle',
+        ],
+        'url' => [
+            'label' => 'URL',
         ],
         'default' => [
             'label' => 'Default',
@@ -31,4 +37,3 @@ return [
     ],
 
 ];
- 
