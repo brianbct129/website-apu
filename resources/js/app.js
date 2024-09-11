@@ -1,1 +1,1 @@
-// Lunar 🚀
+import './bootstrap';
