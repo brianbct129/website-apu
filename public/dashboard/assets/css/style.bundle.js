@@ -21,7 +21,7 @@ var __webpack_exports__ = {};
 (() => {
 var __webpack_exports__ = {};
 /*!***************************************************************!*\
-  !*** ../../../themes/metronic/html/demo4/src/sass/style.scss ***!
+  !*** ../../../themes/metronic/html/demo1/src/sass/style.scss ***!
   \***************************************************************/
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -31,7 +31,7 @@ __webpack_require__.r(__webpack_exports__);
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
 /*!*****************************************************************!*\
-  !*** ../../../themes/metronic/html/demo4/src/sass/plugins.scss ***!
+  !*** ../../../themes/metronic/html/demo1/src/sass/plugins.scss ***!
   \*****************************************************************/
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin

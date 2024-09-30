@@ -7,7 +7,12 @@
     },
     "devDependencies": {
         "axios": "^1.6.4",
+        "gulp": "^5.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.1.0",
         "laravel-vite-plugin": "^1.0.0",
+        "sass": "^1.79.4",
         "vite": "^5.0.0"
     }
 }
