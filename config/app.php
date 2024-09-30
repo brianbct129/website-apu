@@ -56,7 +56,11 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+<<<<<<< Updated upstream
     'asset_url' => env('ASSET_URL', '/'),
+=======
+    'asset_url' => env('ASSET_URL'),
+>>>>>>> Stashed changes
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +144,7 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
-        // 'store'  => 'redis',
+        // 'store' => 'redis',
     ],
 
     /*
@@ -209,7 +213,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+<<<<<<< Updated upstream
         // 'ExampleClass' => App\Example\ExampleClass::class,
+=======
+        // 'Example' => App\Facades\Example::class,
+>>>>>>> Stashed changes
     ])->toArray(),
 
 ];

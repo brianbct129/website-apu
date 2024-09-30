@@ -8,6 +8,10 @@
 .env
 .env.backup
 .env.production
+<<<<<<< Updated upstream
+=======
+.phpunit.result.cache
+>>>>>>> Stashed changes
 Homestead.json
 Homestead.yaml
 auth.json
