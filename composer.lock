@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "bfe12996eeecb6fdc8713a9fd9d431f8",
-=======
     "content-hash": "9c491b8531eec05ba41a11d9276a5749",
->>>>>>> Stashed changes
     "packages": [
         {
             "name": "brick/math",
@@ -1781,11 +1777,7 @@
                 "issues": "https://github.com/thephpleague/flysystem/issues",
                 "source": "https://github.com/thephpleague/flysystem/tree/3.29.0"
             },
-<<<<<<< Updated upstream
-            "time": "2024-05-22T10:09:12+00:00"
-=======
             "time": "2024-09-29T11:59:11+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "league/flysystem-local",
@@ -1890,11 +1882,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2024-01-28T23:22:08+00:00"
-=======
             "time": "2024-09-21T08:32:55+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "monolog/monolog",
@@ -5804,18 +5792,6 @@
         },
         {
             "name": "laravel/pint",
-<<<<<<< Updated upstream
-            "version": "v1.17.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/pint.git",
-                "reference": "9d77be916e145864f10788bb94531d03e1f7b482"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/9d77be916e145864f10788bb94531d03e1f7b482",
-                "reference": "9d77be916e145864f10788bb94531d03e1f7b482",
-=======
             "version": "v1.18.1",
             "source": {
                 "type": "git",
@@ -5826,7 +5802,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/pint/zipball/35c00c05ec43e6b46d295efc0f4386ceb30d50d9",
                 "reference": "35c00c05ec43e6b46d295efc0f4386ceb30d50d9",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5879,22 +5854,6 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-<<<<<<< Updated upstream
-            "time": "2024-09-03T15:00:28+00:00"
-        },
-        {
-            "name": "laravel/sail",
-            "version": "v1.31.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/sail.git",
-                "reference": "0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1",
-                "reference": "0a7e2891a85eba2d448a9ffc6fc5ce367e924bc1",
-=======
             "time": "2024-09-24T17:22:50+00:00"
         },
         {
@@ -5909,7 +5868,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/sail/zipball/d54af9d5745e3680d8a6463ffd9f314aa53eb2d1",
                 "reference": "d54af9d5745e3680d8a6463ffd9f314aa53eb2d1",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -5959,11 +5917,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-<<<<<<< Updated upstream
-            "time": "2024-09-03T20:05:33+00:00"
-=======
             "time": "2024-09-22T19:04:21+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "mockery/mockery",
@@ -6645,18 +6599,6 @@
         },
         {
             "name": "phpunit/phpunit",
-<<<<<<< Updated upstream
-            "version": "10.5.33",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4def7a9cda75af9c2bc179ed53a8e41313e7f7cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4def7a9cda75af9c2bc179ed53a8e41313e7f7cf",
-                "reference": "4def7a9cda75af9c2bc179ed53a8e41313e7f7cf",
-=======
             "version": "10.5.35",
             "source": {
                 "type": "git",
@@ -6667,7 +6609,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7ac8b4e63f456046dcb4c9787da9382831a1874b",
                 "reference": "7ac8b4e63f456046dcb4c9787da9382831a1874b",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -6739,11 +6680,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-<<<<<<< Updated upstream
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.33"
-=======
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.35"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -6759,11 +6696,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2024-09-09T06:06:56+00:00"
-=======
             "time": "2024-09-19T10:52:21+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "sebastian/cli-parser",
@@ -8063,18 +7996,6 @@
         },
         {
             "name": "symfony/yaml",
-<<<<<<< Updated upstream
-            "version": "v7.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "92e080b851c1c655c786a2da77f188f2dccd0f4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/92e080b851c1c655c786a2da77f188f2dccd0f4b",
-                "reference": "92e080b851c1c655c786a2da77f188f2dccd0f4b",
-=======
             "version": "v7.1.5",
             "source": {
                 "type": "git",
@@ -8085,7 +8006,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/yaml/zipball/4e561c316e135e053bd758bf3b3eb291d9919de4",
                 "reference": "4e561c316e135e053bd758bf3b3eb291d9919de4",
->>>>>>> Stashed changes
                 "shasum": ""
             },
             "require": {
@@ -8127,11 +8047,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-<<<<<<< Updated upstream
-                "source": "https://github.com/symfony/yaml/tree/v7.1.4"
-=======
                 "source": "https://github.com/symfony/yaml/tree/v7.1.5"
->>>>>>> Stashed changes
             },
             "funding": [
                 {
@@ -8147,11 +8063,7 @@
                     "type": "tidelift"
                 }
             ],
-<<<<<<< Updated upstream
-            "time": "2024-08-12T09:59:40+00:00"
-=======
             "time": "2024-09-17T12:49:58+00:00"
->>>>>>> Stashed changes
         },
         {
             "name": "theseer/tokenizer",
@@ -8213,5 +8125,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
