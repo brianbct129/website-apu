@@ -1,4 +1,4 @@
-@charset "UTF-8";.select2-container {
+.select2-container {
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
@@ -4014,7 +4014,7 @@ span.flatpickr-weekday {
     border: none;
     cursor: pointer;
     display: inline-block;
-    // float: left;
+    /* float: left; */
     height: 24px;
     padding: 3px 5px;
     width: 28px
@@ -4212,7 +4212,7 @@ span.flatpickr-weekday {
 .ql-snow .ql-picker {
     color: #444;
     display: inline-block;
-    // float: left;
+    /* float: left; */
     font-size: 14px;
     font-weight: 500;
     height: 24px;
