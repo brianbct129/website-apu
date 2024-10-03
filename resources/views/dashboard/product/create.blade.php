@@ -756,7 +756,6 @@ Product
     </div>
     <!--end::Main column-->
 </form>
-<!--end::Form-->
 @endsection
 
 @section('third_script')
