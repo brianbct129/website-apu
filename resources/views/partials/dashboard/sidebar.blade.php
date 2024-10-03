@@ -3,7 +3,7 @@
 	<!--begin::Brand-->
 	<div class="aside-logo flex-column-auto" id="kt_aside_logo">
 		<!--begin::Logo-->
-		<a href="../../demo1/dist/index.html">
+		<a href="/">
 			<img alt="Logo" src="{{ asset('dashboard/assets/media/logos/logo-1-dark.svg') }}" class="h-25px logo" />
 		</a>
 		<!--end::Logo-->
@@ -90,6 +90,8 @@
 					</a>
 				</div>
 
+				
+
 				<div class="menu-item">
 					<a class="menu-link" href="/product">
 						<span class="menu-icon">
@@ -100,6 +102,19 @@
 							<!--end::Svg Icon-->
 						</span>
 						<span class="menu-title">Produk</span>
+					</a>
+				</div>
+
+				<div class="menu-item">
+					<a class="menu-link" href="/category">
+						<span class="menu-icon">
+							<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+							<span class="svg-icon svg-icon-2">
+								<i class="bi bi-box fs-3"></i>
+							</span>
+							<!--end::Svg Icon-->
+						</span>
+						<span class="menu-title">Kategori</span>
 					</a>
 				</div>
 
