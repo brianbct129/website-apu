@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,6 @@ Route::get('/product/edit', [ProductController::class, 'update']);
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/category/create', [CategoryController::class, 'create']);
 Route::get('/category/edit', [CategoryController::class, 'update']);
+
+Route::get('/orders', [OrdersController::class, 'index']);
+Route::get('/orders/edit', [OrdersController::class, 'update']);
