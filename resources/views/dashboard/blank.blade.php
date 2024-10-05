@@ -1,5 +1,31 @@
 @extends('layouts.dashboard')
 
+@section('description')
+<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
+	<!--begin::Item-->
+	<li class="breadcrumb-item text-muted">
+		<a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+	</li>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<li class="breadcrumb-item">
+		<span class="bullet bg-gray-300 w-5px h-2px"></span>
+	</li>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<li class="breadcrumb-item text-muted">Toolbars</li>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<li class="breadcrumb-item">
+		<span class="bullet bg-gray-300 w-5px h-2px"></span>
+	</li>
+	<!--end::Item-->
+	<!--begin::Item-->
+	<li class="breadcrumb-item text-dark">Toolbar 2</li>
+	<!--end::Item-->
+</ul>
+@endsection
+
 @section('title')
 Dashboard
 @endsection
