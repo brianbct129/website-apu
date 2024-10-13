@@ -14,14 +14,25 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_number');
-            $table->foreignId('customer_id')->constrained('customers');
-            $table->dateTime('order_date');
+            $table->unsignedBigInteger('customer_id');
+            $table->decimal('total_amount', 10, 2);
             $table->string('order_status');
-            $table->string('payment_status');
-            $table->string('shipping_status');
+            $table->unsignedBigInteger('payment_id')->nullable();
+            $table->unsignedBigInteger('shipping_id')->nullable();
+            $table->unsignedBigInteger('voucher_id')->nullable();
+            $table->unsignedBigInteger('tax_id')->nullable();
+            $table->unsignedBigInteger('shipping_cost_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('payment_id')->references('id')->on('payments');
+            $table->foreign('shipping_id')->references('id')->on('shippings');
+            $table->foreign('voucher_id')->references('id')->on('vouchers');
+            $table->foreign('tax_id')->references('id')->on('taxes');
+            $table->foreign('shipping_cost_id')->references('id')->on('shipping_costs');
         });
+        
     }
 
     /**
@@ -30,5 +41,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('orders');
+
     }
 };

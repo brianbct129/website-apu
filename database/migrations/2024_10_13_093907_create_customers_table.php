@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
             $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('discount_group_id')->nullable();
+            $table->string('password');
+            $table->string('phone_number');
+            $table->unsignedBigInteger('group_discount_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('discount_group_id')->references('id')->on('discount_groups');
+            
+            $table->foreign('group_discount_id')->references('id')->on('discount_groups');
         });
+        
     }
 
     /**
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('customers');
     }
 };

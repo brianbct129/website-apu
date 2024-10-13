@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('taxes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('discount_group_id')->nullable();
+            $table->decimal('percentage', 5, 2);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('discount_group_id')->references('id')->on('discount_groups');
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('taxes');
     }
 };

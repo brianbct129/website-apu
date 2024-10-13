@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->foreignId('role_id')->constrained('roles');
-            $table->softDeletes();
-            $table->rememberToken();
-            $table->timestamps();
+            $table->id();  // Primary key, auto-incrementing
+            $table->string('name');  // Nama pengguna
+            $table->string('email')->unique();  // Email pengguna, harus unik
+            $table->timestamp('email_verified_at')->nullable();  // Verifikasi email, nullable jika tidak diverifikasi
+            $table->string('password');  // Kata sandi
+            $table->rememberToken();  // Token untuk "remember me" feature
+            $table->timestamps();  // Created_at dan updated_at
+            $table->softDeletes();  // Soft delete untuk mengarsip pengguna, jika diperlukan
         });
+        
     }
 
     /**
