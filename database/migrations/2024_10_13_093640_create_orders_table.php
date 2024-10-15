@@ -26,7 +26,6 @@ return new class extends Migration
             $table->softDeletes();
         
             $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('payment_id')->references('id')->on('payments');
             $table->foreign('shipping_id')->references('id')->on('shippings');
             $table->foreign('voucher_id')->references('id')->on('vouchers');
             $table->foreign('tax_id')->references('id')->on('taxes');
