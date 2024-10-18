@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->json('image')->nullable();
             $table->string('name');
             $table->text('description');
             $table->decimal('price', 10, 2);
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('discount_group_id')->nullable();
+            $table->json('tags')->nullable(); // Store tags as a JSON array
+            $table->string('sku')->unique(); // SKU must be unique
+            $table->string('barcode')->unique(); // Barcode must be unique
+            $table->string('meta_tag_title')->nullable();
+            $table->text('meta_tag_description')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('category_id')->references('id')->on('categories');
