@@ -131,6 +131,19 @@
 					</a>
 				</div>
 
+				<div class="menu-item">
+					<a class="menu-link" href="/vouchers">
+						<span class="menu-icon">
+							<!--begin::Svg Icon | path: icons/duotune/general/gen014.svg-->
+							<span class="svg-icon svg-icon-2">
+								<i class="bi bi-box fs-3"></i>
+							</span>
+							<!--end::Svg Icon-->
+						</span>
+						<span class="menu-title">Vouchers</span>
+					</a>
+				</div>
+
 				
 
 			</div>

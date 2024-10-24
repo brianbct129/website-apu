@@ -12,7 +12,7 @@ class VouchersController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.vouchers.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class VouchersController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.vouchers.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class VouchersController extends Controller
      */
     public function edit(Vouchers $vouchers)
     {
-        //
+        return view('dashboard.vouchers.update');
     }
 
     /**

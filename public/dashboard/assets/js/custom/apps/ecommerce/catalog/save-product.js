@@ -33,8 +33,10 @@ var KTAppEcommerceSaveProduct = (function () {
                 // Simpan referensi Quill editor
                 if (e === "#kt_ecommerce_add_product_description") {
                     quillDescription = quill;
+                    quillDescription.root.innerHTML = document.getElementById('description').value;
                 } else if (e === "#kt_ecommerce_add_product_meta_description") {
                     quillMetaDescription = quill;
+                    quillMetaDescription.root.innerHTML = document.getElementById('meta_description').value;
                 }
 
                 quill.on('text-change', () => {
@@ -47,12 +49,6 @@ var KTAppEcommerceSaveProduct = (function () {
                     const t = document.querySelector(e);
                     t && new Tagify(t, {dropdown: { maxItems: 20, classname: "tagify__inline__suggestions", enabled: 0, closeOnSelect: !1 } });
                 }),
-                // (o = document.querySelector("#kt_ecommerce_add_product_discount_slider")),
-                // (a = document.querySelector("#kt_ecommerce_add_product_discount_label")),
-                // noUiSlider.create(o, { start: [10], connect: !0, range: { min: 1, max: 100 } }),
-                // o.noUiSlider.on("update", function (e, t) {
-                //     (a.innerHTML = Math.round(e[t])), t && (a.innerHTML = Math.round(e[t]));
-                // }),
                 e(),
                 new Dropzone("#kt_ecommerce_add_product_media", {
                     url: "https://keenthemes.com/scripts/void.php",
@@ -122,13 +118,6 @@ var KTAppEcommerceSaveProduct = (function () {
                     });
                 })(),
                 (() => {
-                    // const e = document.getElementById("kt_ecommerce_add_product_shipping_checkbox"),
-                    //     t = document.getElementById("kt_ecommerce_add_product_shipping");
-                    // e.addEventListener("change", (e) => {
-                    //     e.target.checked ? t.classList.remove("d-none") : t.classList.add("d-none");
-                    // });
-                })(),
-                (() => {
                     let e;
                     const t = document.getElementById("kt_ecommerce_add_product_form"),
                         o = document.getElementById("kt_ecommerce_add_product_submit");
@@ -151,10 +140,6 @@ var KTAppEcommerceSaveProduct = (function () {
                                 // Aktifkan indikator submit
                                 o.setAttribute("data-kt-indicator", "on");
                                 o.disabled = true;
-                    
-                                // Ambil konten dari Quill dan simpan ke input hidden
-                                document.getElementById('description').value = quillDescription.root.innerHTML;
-                                document.getElementById('meta_description').value = quillMetaDescription.root.innerHTML;
                     
                                 // Lanjutkan proses submit atau lainnya setelah menyimpan nilai Quill ke input hidden
                                 setTimeout(function () {

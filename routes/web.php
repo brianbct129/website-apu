@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\VouchersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,8 @@ Route::get('/category/edit', [CategoryController::class, 'update']);
 
 Route::get('/orders', [OrdersController::class, 'index']);
 Route::get('/orders/edit', [OrdersController::class, 'update']);
+
+
+Route::get('/vouchers', [VouchersController::class, 'index']);
+Route::get('/vouchers/create', [VouchersController::class, 'create']);
+Route::get('/vouchers/edit', [VouchersController::class, 'update']);

@@ -27,14 +27,11 @@
 @endsection
 
 @section('title')
-title
+Vouchers
 @endsection
 
 @section('content')
-<div class="card card-flush">
-	<div class="card-header align-items-center py-5 gap-2 gap-md-5"></div>
-	<div class="card-body pt-0"></div>
-</div>
+
 @endsection
 
 @section('third_script')
