@@ -103,9 +103,6 @@ var KTAppEcommerceSavevouchers = (function () {
                         },
                         precentage_amount: {
                             validators: {
-                                notEmpty: {
-                                    message: "Percentage amount is required when Percentage is selected"
-                                },
                                 callback: {
                                     message: "Percentage amount is required when Percentage is selected",
                                     callback: function(input) {
