@@ -44,7 +44,7 @@ class VouchersController extends Controller
      */
     public function edit(Vouchers $vouchers)
     {
-        return view('dashboard.vouchers.update');
+      
     }
 
     /**
@@ -52,7 +52,7 @@ class VouchersController extends Controller
      */
     public function update(Request $request, Vouchers $vouchers)
     {
-        //
+        return view('dashboard.vouchers.update');
     }
 
     /**

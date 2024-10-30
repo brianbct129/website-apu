@@ -80,7 +80,7 @@ Vouchers
 						<span class="fw-bolder fs-4 mt-1 ms-2">Use</span>
 					</div>
 					<div id="kt_ecommerce_add_usage_limit" class="noUi-sm"></div>
-					<input type="hidden" class="required" id="usage_limit" name="usage_limit" value="">
+					<input type="hidden" class="required" id="usage_limit" name="usage_limit" value="0">
 				</div>
 				<!--end::Slider-->
 			</div>
@@ -142,7 +142,7 @@ Vouchers
 					<div id="kt_ecommerce_add_vouchers_discount_slider" class="noUi-sm"></div>
 				</div>
 				<!--end::Slider-->
-				<input type="hidden" class="form-control" id="precentage_amount" name="precentage_amount" value="">
+				<input type="hidden" class="form-control" id="precentage_amount" name="precentage_amount" value="0">
 				<!--begin::Description-->
 				<div class="text-muted fs-7">Set a percentage discount to be applied on this vouchers.</div>
 				<!--end::Description-->
@@ -151,7 +151,7 @@ Vouchers
 			<!--begin::Input group-->
 			<div class="mb-10 fv-row" id="kt_ecommerce_add_vouchers_discount_fixed">
 				<!--begin::Input-->
-				<input type="text" name="discounted_price" id="discounted_price" class="form-control mb-2" placeholder="Discounted price" value=""/>
+				<input type="text" name="discounted_price" id="discounted_price" class="form-control mb-2" placeholder="Discounted price"/>
 				<!--end::Input-->
 				<!--begin::Description-->
 				<div class="text-muted fs-7">Set the discounted vouchers price. The vouchers will be reduced at the determined fixed price</div>

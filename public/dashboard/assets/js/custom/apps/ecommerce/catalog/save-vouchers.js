@@ -1,101 +1,119 @@
 "use strict";
-$("#valid_date").daterangepicker({
-    timePicker: true,
-    startDate: moment().startOf("hour"),
-    endDate: moment().startOf("hour").add(32, "hour"),
-    minDate: moment(),
-    inline: true,
-    sideBySide: true,
-    locale: {
-        format: "M/DD hh:mm A"
-    }
-});
 
+// Fungsi utama aplikasi
 var KTAppEcommerceSavevouchers = (function () {
     return {
         init: function () {
-            // Define variables for elements
+            // Mendefinisikan variabel untuk elemen-elemen
             var o, a, o2, a2, hiddenUsageLimit, hiddenPrecentage, hiddenDiscountedPrice;
 
-            // Precentage amount input
+            // Get initial values from hidden inputs
+            hiddenUsageLimit = document.querySelector("#usage_limit");
+            hiddenPrecentage = document.querySelector("#precentage_amount");
+            
+            const initialUsageLimit = parseInt(hiddenUsageLimit.value) || 0;
+            const initialPercentage = parseInt(hiddenPrecentage.value) || 0;
+
+            // Init date range picker
+            const dateRangeEl = document.querySelector("#valid_date");
+            $(dateRangeEl).daterangepicker({
+                timePicker: true,
+                startDate: moment().startOf("hour"),
+                endDate: moment().startOf("hour").add(32, "hour"),
+                minDate: moment(),
+                inline: true,
+                sideBySide: true,
+                locale: {
+                    format: "M/DD hh:mm A"
+                }
+            });
+
+            // Input jumlah persentase
             hiddenPrecentage = document.querySelector("#precentage_amount");
 
-            // Usage limit slider
+            // Slider batas penggunaan
             hiddenUsageLimit = document.querySelector("#usage_limit");
 
-            // Discounted price input
+            // Input harga diskon
             hiddenDiscountedPrice = document.querySelector("#discounted_price");
 
-            // Slider initialization for percentage discount
-            (o = document.querySelector("#kt_ecommerce_add_vouchers_discount_slider")),
-            (a = document.querySelector("#kt_ecommerce_add_vouchers_discount_label")),
-            noUiSlider.create(o, { start: [0], connect: !0, range: { min: 0, max: 100 } }),
+            // Inisialisasi slider untuk diskon persentase
+            o = document.querySelector("#kt_ecommerce_add_vouchers_discount_slider");
+            a = document.querySelector("#kt_ecommerce_add_vouchers_discount_label");
+            noUiSlider.create(o, { 
+                start: [initialPercentage], 
+                connect: true, 
+                range: { min: 0, max: 100 } 
+            });
             o.noUiSlider.on("update", function (e, t) {
                 var value = Math.round(e[t]);
                 a.innerHTML = value;
-                hiddenPrecentage.value = value + "%"; // Add % sign to the hidden input value
+                hiddenPrecentage.value = value;
             });
 
-            // Slider initialization for usage limit
-            (o2 = document.querySelector("#kt_ecommerce_add_usage_limit")),
-            (a2 = document.querySelector("#kt_ecommerce_add_usage_limit_label")),
-            noUiSlider.create(o2, { start: [0], connect: !0, range: { min: 0, max: 100 } }),
+            // Inisialisasi slider untuk batas penggunaan
+            o2 = document.querySelector("#kt_ecommerce_add_usage_limit");
+            a2 = document.querySelector("#kt_ecommerce_add_usage_limit_label");
+            noUiSlider.create(o2, { 
+                start: [initialUsageLimit], 
+                connect: true, 
+                range: { min: 0, max: 100 } 
+            });
             o2.noUiSlider.on("update", function (e, t) {
                 var value = Math.round(e[t]);
                 a2.innerHTML = value;
                 hiddenUsageLimit.value = value;
             });
 
-            // Event listener for radio buttons (discount option selection)
-            (() => {
-                const discountOptions = document.querySelectorAll('input[name="discount_option"]'),
-                      percentageSection = document.getElementById("kt_ecommerce_add_vouchers_discount_percentage"),
-                      fixedPriceSection = document.getElementById("kt_ecommerce_add_vouchers_discount_fixed");
+            // Event listener untuk tombol radio (pemilihan opsi diskon)
+            (function () {
+                const discountOptions = document.querySelectorAll('input[name="discount_option"]');
+                const percentageSection = document.getElementById("kt_ecommerce_add_vouchers_discount_percentage");
+                const fixedPriceSection = document.getElementById("kt_ecommerce_add_vouchers_discount_fixed");
 
                 discountOptions.forEach((option) => {
                     option.addEventListener("change", (event) => {
                         switch (event.target.value) {
-                            case "2": // Percentage selected
+                            case "2": // Persentase dipilih
                                 percentageSection.classList.remove("d-none");
                                 fixedPriceSection.classList.add("d-none");
-                                hiddenDiscountedPrice.value = ""; // Clear discounted price when percentage is selected
+                                hiddenDiscountedPrice.value = "";
                                 break;
-                            case "3": // Fixed Price selected
+                            case "3": // Harga Tetap dipilih
                                 percentageSection.classList.add("d-none");
                                 fixedPriceSection.classList.remove("d-none");
-                                hiddenPrecentage.value = ""; // Clear percentage amount when fixed price is selected
+                                hiddenPrecentage.value = "";
                                 break;
                         }
                     });
                 });
             })();
 
-            // Form validation
-            (() => {
+            // Validasi formulir
+            (function () {
                 let formValidationInstance;
-                const form = document.getElementById("kt_ecommerce_add_vouchers_form"),
-                      submitButton = document.getElementById("kt_ecommerce_add_vouchers_submit");
+                const form = document.getElementById("kt_ecommerce_add_vouchers_form");
+                const submitButton = document.getElementById("kt_ecommerce_add_vouchers_submit");
 
-                // Initialize form validation
+                // Inisialisasi validasi formulir
                 formValidationInstance = FormValidation.formValidation(form, {
                     fields: {
                         vouchers_name: { 
                             validators: { 
-                                notEmpty: { message: "Vouchers name is required" } 
+                                notEmpty: { message: "Nama voucher diperlukan" } 
                             } 
                         },
                         valid_date: { 
                             validators: { 
-                                notEmpty: { message: "Date is required" } 
+                                notEmpty: { message: "Tanggal diperlukan" } 
                             } 
                         },
                         discounted_price: {
                             validators: {
                                 callback: {
-                                    message: "Discounted price is required when Fixed Price is selected",
+                                    message: "Harga diskon diperlukan ketika Harga Tetap dipilih",
                                     callback: function(input) {
                                         const selectedOption = document.querySelector('input[name="discount_option"]:checked').value;
-                                        // Return true if Fixed Price is selected and discounted_price is filled
                                         return selectedOption === "3" ? input.value !== "" : true;
                                     }
                                 }
@@ -104,19 +122,14 @@ var KTAppEcommerceSavevouchers = (function () {
                         precentage_amount: {
                             validators: {
                                 callback: {
-                                    message: "Percentage amount is required when Percentage is selected",
+                                    message: "Jumlah persentase diperlukan ketika Persentase dipilih",
                                     callback: function(input) {
                                         const selectedOption = document.querySelector('input[name="discount_option"]:checked').value;
                                         return selectedOption === "2" ? input.value !== "" : true;
                                     }
-                                },
-                                between: {
-                                    min: 1,
-                                    max: 100,
-                                    message: "Percentage must be between 1% and 100%"
                                 }
                             }
-                        },                        
+                        },
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
@@ -128,28 +141,28 @@ var KTAppEcommerceSavevouchers = (function () {
                     },
                 });
 
-                // Submit button click event
+                // Event klik tombol submit
                 submitButton.addEventListener("click", (e) => {
-                    e.preventDefault(); // Prevent default form submission
+                    e.preventDefault();
                     
-                    // Validate form
+                    // Validasi formulir
                     formValidationInstance.validate().then(function (status) {
                         if (status === "Valid") {
-                            // Show loading indicator
+                            // Tampilkan indikator loading
                             submitButton.setAttribute("data-kt-indicator", "on");
                             submitButton.disabled = true;
 
-                            // Simulate form submission
+                            // Simulasi pengiriman formulir
                             setTimeout(function () {
-                                // Remove loading indicator
+                                // Hapus indikator loading
                                 submitButton.removeAttribute("data-kt-indicator");
 
-                                // Show success message
+                                // Tampilkan pesan sukses
                                 Swal.fire({
-                                    text: "Form has been successfully submitted!",
+                                    text: "Formulir berhasil dikirim!",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Ok, mengerti!",
                                     customClass: { confirmButton: "btn btn-primary" },
                                 }).then(function (result) {  
                                     if (result.isConfirmed) {
@@ -160,10 +173,10 @@ var KTAppEcommerceSavevouchers = (function () {
                             }, 2000);
                         } else {
                             Swal.fire({
-                                html: "Sorry, there are errors detected...",
+                                html: "Maaf, ada kesalahan terdeteksi...",
                                 icon: "error",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "Ok, mengerti!",
                                 customClass: { confirmButton: "btn btn-primary" },
                             });
                         }
@@ -174,7 +187,7 @@ var KTAppEcommerceSavevouchers = (function () {
     };
 })();
 
-// Initialize the app when DOM is loaded
+// Inisialisasi aplikasi ketika DOM telah dimuat
 KTUtil.onDOMContentLoaded(function () {
     KTAppEcommerceSavevouchers.init();
 });

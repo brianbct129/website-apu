@@ -1,159 +1,212 @@
 "use strict";
-var KTAppEcommerceSaveProduct = (function () {
-    const e = () => {
-            $("#kt_ecommerce_add_product_options").repeater({
-                initEmpty: !1,
-                defaultValues: { "text-input": "foo" },
-                show: function () {
-                    $(this).slideDown(), t();
-                },
-                hide: function (e) {
-                    $(this).slideUp(e);
-                },
-            });
-        },
-        t = () => {
-            document.querySelectorAll('[data-kt-ecommerce-catalog-add-product="product_option"]').forEach((e) => {
-                $(e).hasClass("select2-hidden-accessible") || $(e).select2({ minimumResultsForSearch: -1 });
-            });
-        };
+
+const KTAppEcommerceSaveProduct = (function () {
+    const initRepeater = () => {
+        $("#kt_ecommerce_add_product_options").repeater({
+            initEmpty: false,
+            defaultValues: { "text-input": "foo" },
+            show: function () {
+                $(this).slideDown();
+                initProductOptions();
+            },
+            hide: function (deleteElement) {
+                $(this).slideUp(deleteElement);
+            },
+        });
+    };
+
+    const initProductOptions = () => {
+        document.querySelectorAll('[data-kt-ecommerce-catalog-add-product="product_option"]').forEach((element) => {
+            if (!$(element).hasClass("select2-hidden-accessible")) {
+                $(element).select2({ minimumResultsForSearch: -1 });
+            }
+        });
+    };
+
     return {
         init: function () {
-            var o, a;
             let quillDescription, quillMetaDescription;
-            ["#kt_ecommerce_add_product_description", "#kt_ecommerce_add_product_meta_description"].forEach((e) => {
-                let t = document.querySelector(e);
-            if (t) {
-                let quill = new Quill(e, {
-                    modules: { toolbar: [["bold", "italic", "underline"]] },
-                    placeholder: "Type your text here...",
-                    theme: "snow"
-                });
-                
-                // Simpan referensi Quill editor
-                if (e === "#kt_ecommerce_add_product_description") {
-                    quillDescription = quill;
-                    quillDescription.root.innerHTML = document.getElementById('description').value;
-                } else if (e === "#kt_ecommerce_add_product_meta_description") {
-                    quillMetaDescription = quill;
-                    quillMetaDescription.root.innerHTML = document.getElementById('meta_description').value;
-                }
 
-                quill.on('text-change', () => {
-                    document.getElementById('description').value = quillDescription.root.innerHTML;
-                    document.getElementById('meta_description').value = quillMetaDescription.root.innerHTML;
+            ["#kt_ecommerce_add_product_description", "#kt_ecommerce_add_product_meta_description"].forEach((selector) => {
+                let element = document.querySelector(selector);
+                if (element) {
+                    let quill = new Quill(selector, {
+                        modules: { toolbar: [["bold", "italic", "underline"]] },
+                        placeholder: "Type your text here...",
+                        theme: "snow"
+                    });
+                    
+                    if (selector === "#kt_ecommerce_add_product_description") {
+                        quillDescription = quill;
+                        quillDescription.root.innerHTML = document.getElementById('description').value;
+                    } else if (selector === "#kt_ecommerce_add_product_meta_description") {
+                        quillMetaDescription = quill;
+                        quillMetaDescription.root.innerHTML = document.getElementById('meta_description').value;
+                    }
+
+                    quill.on('text-change', () => {
+                        document.getElementById('description').value = quillDescription.root.innerHTML;
+                        document.getElementById('meta_description').value = quillMetaDescription.root.innerHTML;
+                    });
+                }
+            });
+
+            ["#kt_ecommerce_add_product_tags"].forEach((selector) => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    new Tagify(element, {
+                        dropdown: { 
+                            maxItems: 20, 
+                            classname: "tagify__inline__suggestions", 
+                            enabled: 0, 
+                            closeOnSelect: false 
+                        } 
+                    });
+                }
+            });
+
+            initRepeater();
+
+            new Dropzone("#kt_ecommerce_add_product_media", {
+                url: "https://keenthemes.com/scripts/void.php",
+                paramName: "file",
+                maxFiles: 4,
+                maxFilesize: 4,
+                addRemoveLinks: true,
+                accept: function (file, done) {
+                    if (file.name == "wow.jpg") {
+                        done("Naha, you don't.");
+                    } else {
+                        done();
+                    }
+                },
+            });
+
+            initProductOptions();
+
+            (() => {
+                const statusElement = document.getElementById("kt_ecommerce_add_product_status");
+                const statusSelect = document.getElementById("kt_ecommerce_add_product_status_select");
+                const statusClasses = ["bg-success", "bg-warning", "bg-danger"];
+
+                $(statusSelect).on("change", function (e) {
+                    statusClasses.forEach(cls => statusElement.classList.remove(cls));
+                    switch (e.target.value) {
+                        case "published":
+                            statusElement.classList.add("bg-success");
+                            hideStatusDatepicker();
+                            break;
+                        case "scheduled":
+                            statusElement.classList.add("bg-warning");
+                            showStatusDatepicker();
+                            break;
+                        case "inactive":
+                            statusElement.classList.add("bg-danger");
+                            hideStatusDatepicker();
+                            break;
+                        case "draft":
+                            statusElement.classList.add("bg-primary");
+                            hideStatusDatepicker();
+                            break;
+                    }
                 });
-            }
-            }),
-                ["#kt_ecommerce_add_product_tags"].forEach((e) => {
-                    const t = document.querySelector(e);
-                    t && new Tagify(t, {dropdown: { maxItems: 20, classname: "tagify__inline__suggestions", enabled: 0, closeOnSelect: !1 } });
-                }),
-                e(),
-                new Dropzone("#kt_ecommerce_add_product_media", {
-                    url: "https://keenthemes.com/scripts/void.php",
-                    paramName: "file",
-                    maxFiles: 4,
-                    maxFilesize: 4,
-                    addRemoveLinks: !0,
-                    accept: function (e, t) {
-                        "wow.jpg" == e.name ? t("Naha, you don't.") : t();
-                    },
-                }),
-                t(),
-                (() => {
-                    const e = document.getElementById("kt_ecommerce_add_product_status"),
-                        t = document.getElementById("kt_ecommerce_add_product_status_select"),
-                        o = ["bg-success", "bg-warning", "bg-danger"];
-                    $(t).on("change", function (t) {
-                        switch (t.target.value) {
-                            case "published":
-                                e.classList.remove(...o), e.classList.add("bg-success"), c();
-                                break;
-                            case "scheduled":
-                                e.classList.remove(...o), e.classList.add("bg-warning"), d();
-                                break;
-                            case "inactive":
-                                e.classList.remove(...o), e.classList.add("bg-danger"), c();
-                                break;
-                            case "draft":
-                                e.classList.remove(...o), e.classList.add("bg-primary"), c();
+
+                const datepicker = document.getElementById("kt_ecommerce_add_product_status_datepicker");
+                $("#kt_ecommerce_add_product_status_datepicker").flatpickr({ enableTime: true, dateFormat: "Y-m-d H:i" });
+
+                const showStatusDatepicker = () => {
+                    datepicker.parentNode.classList.remove("d-none");
+                };
+
+                const hideStatusDatepicker = () => {
+                    datepicker.parentNode.classList.add("d-none");
+                };
+            })();
+
+            (() => {
+                const methodRadios = document.querySelectorAll('[name="method"][type="radio"]');
+                const autoOptions = document.querySelector('[data-kt-ecommerce-catalog-add-category="auto-options"]');
+                
+                methodRadios.forEach((radio) => {
+                    radio.addEventListener("change", (e) => {
+                        if (e.target.value === "1") {
+                            autoOptions.classList.remove("d-none");
+                        } else {
+                            autoOptions.classList.add("d-none");
                         }
                     });
-                    const a = document.getElementById("kt_ecommerce_add_product_status_datepicker");
-                    $("#kt_ecommerce_add_product_status_datepicker").flatpickr({ enableTime: !0, dateFormat: "Y-m-d H:i" });
-                    const d = () => {
-                            a.parentNode.classList.remove("d-none");
-                        },
-                        c = () => {
-                            a.parentNode.classList.add("d-none");
-                        };
-                })(),
-                (() => {
-                    const e = document.querySelectorAll('[name="method"][type="radio"]'),
-                        t = document.querySelector('[data-kt-ecommerce-catalog-add-category="auto-options"]');
-                    e.forEach((e) => {
-                        e.addEventListener("change", (e) => {
-                            "1" === e.target.value ? t.classList.remove("d-none") : t.classList.add("d-none");
-                        });
+                });
+            })();
+
+            (() => {
+                const discountOptions = document.querySelectorAll('input[name="discount_option"]');
+                const percentageDiscount = document.getElementById("kt_ecommerce_add_product_discount_percentage");
+                const fixedDiscount = document.getElementById("kt_ecommerce_add_product_discount_fixed");
+
+                discountOptions.forEach((option) => {
+                    option.addEventListener("change", (e) => {
+                        switch (e.target.value) {
+                            case "2":
+                                percentageDiscount.classList.remove("d-none");
+                                fixedDiscount.classList.add("d-none");
+                                break;
+                            case "3":
+                                percentageDiscount.classList.add("d-none");
+                                fixedDiscount.classList.remove("d-none");
+                                break;
+                            default:
+                                percentageDiscount.classList.add("d-none");
+                                fixedDiscount.classList.add("d-none");
+                        }
                     });
-                })(),
-                (() => {
-                    const e = document.querySelectorAll('input[name="discount_option"]'),
-                        t = document.getElementById("kt_ecommerce_add_product_discount_percentage"),
-                        o = document.getElementById("kt_ecommerce_add_product_discount_fixed");
-                    e.forEach((e) => {
-                        e.addEventListener("change", (e) => {
-                            switch (e.target.value) {
-                                case "2":
-                                    t.classList.remove("d-none"), o.classList.add("d-none");
-                                    break;
-                                case "3":
-                                    t.classList.add("d-none"), o.classList.remove("d-none");
-                                    break;
-                                default:
-                                    t.classList.add("d-none"), o.classList.add("d-none");
-                            }
-                        });
-                    });
-                })(),
-                (() => {
-                    let e;
-                    const t = document.getElementById("kt_ecommerce_add_product_form"),
-                        o = document.getElementById("kt_ecommerce_add_product_submit");
-                    (e = FormValidation.formValidation(t, {
-                        fields: {
-                            product_name: { validators: { notEmpty: { message: "Product name is required" } } },
-                            sku: { validators: { notEmpty: { message: "SKU is required" } } },
-                            sku: { validators: { notEmpty: { message: "Product barcode is required" } } },
-                            shelf: { validators: { notEmpty: { message: "Shelf quantity is required" } } },
-                            price: { validators: { notEmpty: { message: "Product base price is required" } } },
-                            tax: { validators: { notEmpty: { message: "Product tax class is required" } } },
-                        },
-                        plugins: { trigger: new FormValidation.plugins.Trigger(), bootstrap: new FormValidation.plugins.Bootstrap5({ rowSelector: ".fv-row, .row", eleInvalidClass: "", eleValidClass: "" }) },
-                    })),
-                    o.addEventListener("click", (a) => {
-                        a.preventDefault(), // Mencegah submit default
-                        
-                        e && e.validate().then(function (e) {
-                            if ("Valid" == e) {
-                                // Aktifkan indikator submit
-                                o.setAttribute("data-kt-indicator", "on");
-                                o.disabled = true;
+                });
+            })();
+
+            (() => {
+                let validator;
+                const form = document.getElementById("kt_ecommerce_add_product_form");
+                const submitButton = document.getElementById("kt_ecommerce_add_product_submit");
+
+                validator = FormValidation.formValidation(form, {
+                    fields: {
+                        product_name: { validators: { notEmpty: { message: "Product name is required" } } },
+                        sku: { validators: { notEmpty: { message: "SKU is required" } } },
+                        barcode: { validators: { notEmpty: { message: "Product barcode is required" } } },
+                        shelf: { validators: { notEmpty: { message: "Shelf quantity is required" } } },
+                        price: { validators: { notEmpty: { message: "Product base price is required" } } },
+                        tax: { validators: { notEmpty: { message: "Product tax class is required" } } },
+                    },
+                    plugins: { 
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap: new FormValidation.plugins.Bootstrap5({ 
+                            rowSelector: ".fv-row, .row", 
+                            eleInvalidClass: "", 
+                            eleValidClass: "" 
+                        })
+                    },
+                });
+
+                submitButton.addEventListener("click", (e) => {
+                    e.preventDefault();
                     
-                                // Lanjutkan proses submit atau lainnya setelah menyimpan nilai Quill ke input hidden
+                    if (validator) {
+                        validator.validate().then(function (status) {
+                            if (status === "Valid") {
+                                submitButton.setAttribute("data-kt-indicator", "on");
+                                submitButton.disabled = true;
+                    
                                 setTimeout(function () {
-                                    o.removeAttribute("data-kt-indicator"),
+                                    submitButton.removeAttribute("data-kt-indicator");
                                     Swal.fire({
                                         text: "Form has been successfully submitted!",
                                         icon: "success",
                                         buttonsStyling: false,
                                         confirmButtonText: "Ok, got it!",
                                         customClass: { confirmButton: "btn btn-primary" },
-                                    }).then(function (e) {
-                                        if (e.isConfirmed) {
-                                            o.disabled = false;
-                                            window.location = t.getAttribute("data-kt-redirect");
+                                    }).then(function (result) {
+                                        if (result.isConfirmed) {
+                                            submitButton.disabled = false;
+                                            window.location = form.getAttribute("data-kt-redirect");
                                         }
                                     });
                                 }, 2000);
@@ -167,12 +220,13 @@ var KTAppEcommerceSaveProduct = (function () {
                                 });
                             }
                         });
-                    });
-                    
-                })();
+                    }
+                });
+            })();
         },
     };
 })();
+
 KTUtil.onDOMContentLoaded(function () {
     KTAppEcommerceSaveProduct.init();
 });
