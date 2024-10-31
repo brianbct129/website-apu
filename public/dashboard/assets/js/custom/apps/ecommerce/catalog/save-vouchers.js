@@ -183,6 +183,44 @@ var KTAppEcommerceSavevouchers = (function () {
                     });
                 });
             })();
+
+            // Format Rupiah function
+            const formatRupiah = (angka) => {
+                // Remove any existing currency symbol and dots
+                let number = angka.replace(/[^\d.]/g, '');
+                // Remove all dots first
+                number = number.replace(/\./g, '');
+                
+                // Format number with dots
+                let formatted = new Intl.NumberFormat('id-ID').format(number);
+                
+                // Add Rp prefix
+                return `Rp ${formatted}`;
+            }
+
+            // Format fixed price input
+            const fixedPriceInput = document.querySelector('#discounted_price');
+            
+            // Format on input
+            fixedPriceInput.addEventListener('input', function(e) {
+                let value = this.value;
+                // Only format if there's a value
+                if (value) {
+                    this.value = formatRupiah(value);
+                }
+            });
+
+            // Format initial value if exists
+            if (fixedPriceInput.value) {
+                fixedPriceInput.value = formatRupiah(fixedPriceInput.value);
+            }
+
+            // Clean up value before form submit
+            const form = document.querySelector('#kt_ecommerce_add_vouchers_form');
+            form.addEventListener('submit', function(e) {
+                const rawValue = fixedPriceInput.value.replace(/[^\d]/g, '');
+                fixedPriceInput.value = rawValue;
+            });
         },
     };
 })();
@@ -191,3 +229,44 @@ var KTAppEcommerceSavevouchers = (function () {
 KTUtil.onDOMContentLoaded(function () {
     KTAppEcommerceSavevouchers.init();
 });
+
+// Update handleSubmit function
+var handleSubmit = function() {
+    submitButton.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (validator) {
+            validator.validate().then(function (status) {
+                if (status == 'Valid') {
+                    submitButton.setAttribute('data-kt-indicator', 'on');
+                    submitButton.disabled = true;
+
+                    // Clean up fixed price value before submit
+                    const fixedPriceInput = document.querySelector('#discounted_price');
+                    const rawValue = fixedPriceInput.value.replace(/[^\d]/g, '');
+                    fixedPriceInput.value = rawValue;
+
+                    // Prepare form data
+                    const formData = new FormData(formEl);
+
+                    // Submit form
+                    fetch(formEl.getAttribute('action'), {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // ... existing success handling ...
+                    })
+                    .catch(error => {
+                        // ... existing error handling ...
+                    })
+                    .finally(() => {
+                        // Reformat the fixed price input after submit
+                        fixedPriceInput.value = formatRupiah(fixedPriceInput.value);
+                    });
+                }
+            });
+        }
+    });
+};

@@ -252,7 +252,7 @@ Product
                                 <label class="required form-label">Base Price</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" name="price" class="form-control mb-2" placeholder="Product price" value="" />
+                                <input type="text" name="price" class="form-control mb-2" placeholder="Rp.0" value="" />
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the product price.</div>

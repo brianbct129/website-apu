@@ -151,7 +151,7 @@ Vouchers
 			<!--begin::Input group-->
 			<div class="mb-10 fv-row" id="kt_ecommerce_add_vouchers_discount_fixed">
 				<!--begin::Input-->
-				<input type="text" name="discounted_price" id="discounted_price" class="form-control mb-2" placeholder="Discounted price" value=""/>
+				<input type="text" name="discounted_price" id="discounted_price" class="form-control mb-2" placeholder="Rp. 0" value=""/>
 				<!--end::Input-->
 				<!--begin::Description-->
 				<div class="text-muted fs-7">Set the discounted vouchers price. The vouchers will be reduced at the determined fixed price</div>

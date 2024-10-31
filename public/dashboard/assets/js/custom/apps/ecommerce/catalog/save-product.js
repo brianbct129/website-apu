@@ -1,5 +1,19 @@
 "use strict";
 
+// Format Rupiah function
+const formatRupiah = (angka) => {
+    // Remove any existing currency symbol and dots
+    let number = angka.replace(/[^\d.]/g, '');
+    // Remove all dots first
+    number = number.replace(/\./g, '');
+    
+    // Format number with dots
+    let formatted = new Intl.NumberFormat('id-ID').format(number);
+    
+    // Add Rp prefix
+    return `Rp ${formatted}`;
+}
+
 const KTAppEcommerceSaveProduct = (function () {
     const initRepeater = () => {
         $("#kt_ecommerce_add_product_options").repeater({
@@ -21,6 +35,24 @@ const KTAppEcommerceSaveProduct = (function () {
                 $(element).select2({ minimumResultsForSearch: -1 });
             }
         });
+    };
+
+    const initPriceInput = () => {
+        const priceInput = document.querySelector('input[name="price"]');
+        
+        // Format on input
+        priceInput.addEventListener('input', function(e) {
+            let value = this.value;
+            // Only format if there's a value
+            if (value) {
+                this.value = formatRupiah(value);
+            }
+        });
+
+        // Format initial value if exists
+        if (priceInput.value) {
+            priceInput.value = formatRupiah(priceInput.value);
+        }
     };
 
     return {
@@ -83,6 +115,8 @@ const KTAppEcommerceSaveProduct = (function () {
             });
 
             initProductOptions();
+
+            initPriceInput();
 
             (() => {
                 const statusElement = document.getElementById("kt_ecommerce_add_product_status");
@@ -173,7 +207,19 @@ const KTAppEcommerceSaveProduct = (function () {
                         sku: { validators: { notEmpty: { message: "SKU is required" } } },
                         barcode: { validators: { notEmpty: { message: "Product barcode is required" } } },
                         shelf: { validators: { notEmpty: { message: "Shelf quantity is required" } } },
-                        price: { validators: { notEmpty: { message: "Product base price is required" } } },
+                        price: {
+                            validators: {
+                                notEmpty: { message: "Product price is required" },
+                                callback: {
+                                    message: 'Please enter a valid price',
+                                    callback: function(input) {
+                                        // Get raw value without currency and dots
+                                        const value = input.value.replace(/[^\d]/g, '');
+                                        return value.length > 0;
+                                    }
+                                }
+                            }
+                        },
                         tax: { validators: { notEmpty: { message: "Product tax class is required" } } },
                     },
                     plugins: { 
@@ -192,6 +238,11 @@ const KTAppEcommerceSaveProduct = (function () {
                     if (validator) {
                         validator.validate().then(function (status) {
                             if (status === "Valid") {
+                                // Clean up price value before submit
+                                const priceInput = document.querySelector('input[name="price"]');
+                                const rawValue = priceInput.value.replace(/[^\d]/g, '');
+                                priceInput.value = rawValue;
+
                                 submitButton.setAttribute("data-kt-indicator", "on");
                                 submitButton.disabled = true;
                     
